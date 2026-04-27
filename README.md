@@ -1,4 +1,4 @@
-# Fight Picks — Notas de Predicción de Peleas
+# Fight Picks — Notas de Predicción de Peleas.
 
 App Flutter para registrar y editar predicciones sobre peleas de boxeo/MMA.
 
