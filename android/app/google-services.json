@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549808844538",
+    "project_id": "bets-10c59",
+    "storage_bucket": "bets-10c59.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549808844538:android:7d28cb4054a73d0b786343",
+        "android_client_info": {
+          "package_name": "com.example.bets"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc1sTh9tHgGYpItWHMtnRI15Zx0BZstuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
