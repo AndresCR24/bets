@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'note_model.dart';
 import 'note_repository.dart';
 
-// Pantalla para crear o editar una nota de predicción
 class NoteFormPage extends StatefulWidget {
   final NoteRepository repository;
-  // Si note != null, estamos editando; si es null, creando
   final NoteModel? note;
 
   const NoteFormPage({
@@ -86,7 +84,6 @@ class _NoteFormPageState extends State<NoteFormPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Título
               TextFormField(
                 controller: _titleCtrl,
                 decoration: const InputDecoration(
@@ -105,7 +102,6 @@ class _NoteFormPageState extends State<NoteFormPage> {
               ),
               const SizedBox(height: 20),
 
-              // Contenido / predicción
               TextFormField(
                 controller: _contentCtrl,
                 decoration: const InputDecoration(
@@ -127,7 +123,6 @@ class _NoteFormPageState extends State<NoteFormPage> {
               ),
               const SizedBox(height: 28),
 
-              // Botón guardar
               ElevatedButton.icon(
                 onPressed: _loading ? null : _save,
                 icon: _loading

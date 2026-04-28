@@ -7,7 +7,6 @@ class NoteRemoteService {
   final CollectionReference<Map<String, dynamic>> _collection =
       FirebaseFirestore.instance.collection('andres y lasso');
 
-  // Crear o actualizar un documento en Firestore
   Future<void> upsertNote(NoteModel note) async {
     final userId = FirebaseAuth.instance.currentUser?.uid ?? '';
     if (note.id == null) return;

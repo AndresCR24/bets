@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'auth_service.dart';
 
-// Pantalla de Login y Registro
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -16,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordCtrl = TextEditingController();
   final _authService = AuthService();
 
-  bool _isLogin = true; // true = Login, false = Registro
+  bool _isLogin = true;
   bool _loading = false;
   String? _errorMessage;
 
@@ -53,7 +52,6 @@ class _LoginPageState extends State<LoginPage> {
         _loading = false;
       });
     }
-    // Si error == null el authStateChanges en main.dart navega automáticamente
   }
 
   @override
@@ -68,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Ícono + Título
                   const Icon(Icons.sports_mma, size: 72, color: Colors.deepOrange),
                   const SizedBox(height: 12),
                   Text(
@@ -85,7 +82,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 32),
 
-                  // Campo email
                   TextFormField(
                     controller: _emailCtrl,
                     keyboardType: TextInputType.emailAddress,
@@ -102,7 +98,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 16),
 
-                  // Campo contraseña
                   TextFormField(
                     controller: _passwordCtrl,
                     obscureText: true,
@@ -120,7 +115,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 8),
 
-                  // Mensaje de error
                   if (_errorMessage != null)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
@@ -133,7 +127,6 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 8),
 
-                  // Botón principal
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -157,7 +150,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 12),
 
-                  // Cambiar entre Login y Registro
                   TextButton(
                     onPressed: () => setState(() {
                       _isLogin = !_isLogin;

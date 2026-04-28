@@ -6,7 +6,6 @@ import '../../features/notes/note_model.dart';
 
 part 'app_database.g.dart';
 
-// Tabla de notas de predicción
 class Notes extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get title => text()();
@@ -34,7 +33,6 @@ class AppDatabase extends _$AppDatabase {
     );
   }
 
-  // Convierte una fila de la tabla al modelo de la app
   NoteModel _toModel(Note row) {
     return NoteModel(
       id: row.id,
@@ -44,14 +42,12 @@ class AppDatabase extends _$AppDatabase {
     );
   }
 
-  // Stream reactivo con todas las notas ordenadas por fecha descendente
   Stream<List<NoteModel>> watchNotes() {
     final query = select(notes)
       ..orderBy([(n) => OrderingTerm.desc(n.createdAt)]);
     return query.watch().map((rows) => rows.map(_toModel).toList());
   }
 
-  // Insertar una nota y devolver el modelo con el ID asignado
   Future<NoteModel> insertNote(NoteModel note) async {
     final id = await into(notes).insert(
       NotesCompanion.insert(
@@ -63,7 +59,6 @@ class AppDatabase extends _$AppDatabase {
     return note.copyWith(id: id);
   }
 
-  // Actualizar una nota existente
   Future<void> updateNote(NoteModel note) async {
     if (note.id == null) return;
     await (update(notes)..where((n) => n.id.equals(note.id!))).write(

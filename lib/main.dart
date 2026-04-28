@@ -11,12 +11,10 @@ import 'firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Inicializar Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Inicializar dependencias
   final database = AppDatabase();
   final remoteService = NoteRemoteService();
   final repository = NoteRepository(
@@ -47,7 +45,6 @@ class BetsApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
-      // Auth desactivada temporalmente — va directo a notas
       home: NotesPage(
         repository: repository,
         authService: authService,

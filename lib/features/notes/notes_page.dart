@@ -5,7 +5,6 @@ import 'note_form_page.dart';
 import 'note_model.dart';
 import 'note_repository.dart';
 
-// Pantalla principal — lista de notas de predicción
 class NotesPage extends StatelessWidget {
   final NoteRepository repository;
   final AuthService authService;

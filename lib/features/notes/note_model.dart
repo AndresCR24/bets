@@ -1,4 +1,3 @@
-// Modelo de datos para una nota de predicción de pelea
 class NoteModel {
   final int? id;
   final String title;

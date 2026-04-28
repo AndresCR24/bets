@@ -1,16 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
-// Servicio de autenticación con Firebase Auth
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // Stream del usuario autenticado actual
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
   User? get currentUser => _auth.currentUser;
 
-  // Registrar con email y contraseña
   Future<String?> register({
     required String email,
     required String password,
@@ -20,14 +17,13 @@ class AuthService {
         email: email,
         password: password,
       );
-      return null; // null = éxito
+      return null;
     } on FirebaseAuthException catch (e) {
       debugPrint('Error al registrar: ${e.code}');
       return _mapError(e.code);
     }
   }
 
-  // Iniciar sesión con email y contraseña
   Future<String?> login({
     required String email,
     required String password,
@@ -45,7 +41,6 @@ class AuthService {
     await _auth.signOut();
   }
 
-  // Traduce códigos de error de Firebase a mensajes en español
   String _mapError(String code) {
     switch (code) {
       case 'email-already-in-use':
